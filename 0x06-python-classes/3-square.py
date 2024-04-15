@@ -23,7 +23,6 @@ class Square:
         else:
             self.__size = size
 
-    @property
     def area(self):
         """ calculates the area of the square.
 
