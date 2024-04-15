@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 # 2-square.py
-"""A square that defines a square based on 1-square.py"""
+"""define a class Square that defines a square based on 1-square.py"""
 
 
 class Square:
+    """ Definition of a class Square"""
 
     def __init__(self, size=0):
         """ An init method that initializes a class Square.
 
         Args:
-            size(int, optional): The size of the square. .
+            size(int): The size of the square. .
 
         Raises:
             TypeError: if size is not an integer.
