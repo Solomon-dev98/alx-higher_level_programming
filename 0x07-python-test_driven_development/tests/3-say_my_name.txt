@@ -1,0 +1,77 @@
+===========================
+how to use 3-say_my_name.py
+===========================
+
+This module defines a print function ``say_my_name(first_name, last_name="")``.
+
+usage
+=====
+
+``say_my_name(...)`` function prints "My name is <first_name> <last_name"
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("Solomon", "Grundy")
+	My name is Solomon Grundy
+
+
+One str Argument
+================
+Only the ``first_name`` can still be passed too, the ``last_name`` is optional.
+
+::
+
+	>>> say_my_name("Billy")
+	My name is Billy
+
+
+Invalid Arguments
+=================
+passing a float or string will raise a TypeError as ``first_name`` or ``last_name`` must be a string.
+
+::
+	>>> say_my_name(15, "Solomon")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Passing a float as an argument will raise TypeError
+
+::
+	>>> say_my_name(20.6, 60)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Passing a list will raise a TypeError
+
+::
+
+	>>> say_my_name(["Solomon", "Grundy"], "King")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Passing a dictionary will raise a TypeError
+
+::
+
+	>>> say_my_name({"Boys":6, "Girls":2}, "Parents")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Passing none will raise a TypeError
+
+::
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Atleast one argument is required.
+Passing no argument wil raise a TypeError
+
+::
+
+	>>> say_my_name()	
+	Traceback (most recent call last):
+		File "<stdin>", line 1, in <module>
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
