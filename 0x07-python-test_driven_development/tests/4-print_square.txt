@@ -27,6 +27,20 @@ usage
 	######
 	######
 
+::
+
+	>>> print_square(2 * 5)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
 if ``size`` is 0, nothing is printed and no exception is raised.
 
 ::
@@ -72,5 +86,20 @@ if ``size`` is a string, a TypeError exception is raised.
 ::
 
 	>>> print_square(None)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+``size`` cannot be a list, otherwise a TypeError is raised.
+
+::
+	>>> print_square([3])
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+``size`` cannot be a dictionary, otherwise a TypeError is raised.
+
+::
+
+	>>> print_square({"size": 4})
 	Traceback (most recent call last):
 	TypeError: size must be an integer
