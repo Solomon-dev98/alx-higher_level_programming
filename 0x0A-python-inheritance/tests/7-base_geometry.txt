@@ -1,0 +1,85 @@
+=============================
+how to use 7-base_geometry.py
+=============================
+
+The module defines a class ``BaseGeometry``.
+
+usage
+=====
+
+``BaseGeometry`` has two public instances that raises a TypeError and Value Error exception. where ``area()`` implements nothing and ``integer_validator()`` validates a ``value`` if it's an integer and if ``value`` is greater than 0.
+
+::
+
+an exception is only raised if ``value`` is not an int.
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("number", 30)
+
+>>> bg.integer_validator("age", 28)
+
+>>> bg.integer_validator("width", 89)
+
+>>> bg.integer_validator("my_int", 12)
+
+when an expression of integers is passed as the ``value``
+
+bg.integer_validator("score_list", 5 * 4)
+
+invalid values
+==============
+
+::
+
+passing a string will raise TypeError Exception
+
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+passing 0 as ``value`` will raise a ValueError
+
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+
+same case for a negative ``value``
+
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+ValueError: distance must be greater than 0
+
+passing a float will raise a TypeError
+
+>>> bg.integer_validator("weight", 70.5)
+Traceback (most recent call last):
+TypeError: weight must be an integer
+
+samething for a negative float ``value``
+
+>>> bg.integer_validator("weight", -70.5)
+Traceback (most recent call last):
+TypeError: weight must be an integer
+
+for a list of integers:
+
+>>> bg.integer_validator("score_list", [4, 3, 5, 2])
+Traceback (most recent call last):
+TypeError: score_list must be an integer
+
+::
+
+when ``value`` is not an arg
+
+>>> bg.integer_validator("score_list", )
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+::
+
+when None is given as an argument
+
+>>> bg.integer_validator("score_list", None)
+Traceback (most recent call last):
+TypeError: score_list must be an integer
