@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import json
 """Implementation of a function ``def to_json_striing(my_obj)``"""
+import json
 
 
 def to_json_string(my_obj):
