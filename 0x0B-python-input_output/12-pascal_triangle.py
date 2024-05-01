@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """A function that returns a list of integers representing the
 Pascal's Triangle
 """
@@ -23,4 +23,4 @@ def pascal_triangle(n):
                 row.append(previous_row[j - 1] + previous_row[j])
             row.append(1)
             pascal_triangle.append(row)
-    return pascal_triangle/
+    return pascal_triangle
