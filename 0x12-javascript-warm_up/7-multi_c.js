@@ -2,8 +2,8 @@
 
 const x = process.argv[2];
 
-if (Number.isInteger(parseInt(x))) {
-  for (let i = x; i !== 0; i--) {
+if (!isNaN(x) && Number.isInteger(parseInt(x))) {
+  for (let i = x; i > 0; i--) {
     console.log('C is fun');
   }
 } else {
