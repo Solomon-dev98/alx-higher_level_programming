@@ -5,7 +5,7 @@ import sys
 import MySQLdb
 
 
-def filter_states_by_userInput():
+def filter_states_by_userInput(username, password, database, searched_state):
 
     # connect to a database server
     db = MySQLdb.connect(
@@ -41,4 +41,4 @@ if __name__ == "__main__":
     database = sys.argv[3]
     searched_state = sys.argv[4]
 
-    filter_states_by_userInput()
+    filter_states_by_userInput(username, password, database, searched_state)
