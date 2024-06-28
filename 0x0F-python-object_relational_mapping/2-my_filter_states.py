@@ -5,13 +5,6 @@ import sys
 import MySQLdb
 
 
-# read the command line args
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-state_name = sys.argv[4]
-
-
 def filter_states_by_userInput(username, password, database, state_name):
 
     # connect to a database server
@@ -43,4 +36,10 @@ def filter_states_by_userInput(username, password, database, state_name):
 
 
 if __name__ == "__main__":
+    # read the command line args
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+
     filter_states_by_userInput(username, password, database, state_name)
