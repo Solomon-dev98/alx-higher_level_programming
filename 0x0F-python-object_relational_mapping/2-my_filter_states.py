@@ -5,7 +5,14 @@ import sys
 import MySQLdb
 
 
-def filter_states_by_userInput(username, password, database, name):
+# read the command line args
+username = sys.argv[1]
+password = sys.argv[2]
+database = sys.argv[3]
+state_name = sys.argv[4]
+
+
+def filter_states_by_userInput(username, password, database, state_name):
 
     # connect to a database server
     db = MySQLdb.connect(
@@ -20,8 +27,9 @@ def filter_states_by_userInput(username, password, database, name):
     cursor = db.cursor()
 
     # execute the query to display all the values in a states table
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-                   .format(name))
+    query = ("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
+             .format(state_name))
+    cursor.execute(query)
     # fetch the searched state
     states = cursor.fetchall()
 
@@ -35,10 +43,4 @@ def filter_states_by_userInput(username, password, database, name):
 
 
 if __name__ == "__main__":
-    # read the command line args
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    name = sys.argv[4]
-
-    filter_states_by_userInput(username, password, database, name)
+    filter_states_by_userInput(username, password, database, state_name)
