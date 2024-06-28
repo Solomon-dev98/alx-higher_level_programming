@@ -4,6 +4,10 @@
 import sys
 import MySQLdb
 
+username = sys.argv[1]
+password = sys.argv[2]
+database = sys.argv[3]
+
 
 def filter_states():
 
@@ -36,9 +40,4 @@ def filter_states():
 
 
 if __name__ == "__main__":
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
     filter_states()
