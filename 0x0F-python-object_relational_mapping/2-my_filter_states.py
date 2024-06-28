@@ -1,27 +1,28 @@
 #!/usr/bin/python3
-"""An immplementation of a script that displays all values in the a table
+"""An implementation of a script that displays all values in the a table
     where name matches the argument"""
 import sys
 import MySQLdb
 
 
-def filter_states_by_userInput(username, password, database, state_name):
+def filter_states_by_userInput():
 
     # connect to a database server
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
 
     # establish a cursor for connection to the db
     cursor = db.cursor()
 
     # execute the query to display all the values in a states table
-    query = ("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-             .format(state_name))
+    query = """SELECT * FROM states
+             WHERE name = BINARY '{}'
+             ORDER BY id ASC""".format(sys.argv[4])
     cursor.execute(query)
     # fetch the searched state
     states = cursor.fetchall()
@@ -37,9 +38,4 @@ def filter_states_by_userInput(username, password, database, state_name):
 
 if __name__ == "__main__":
     # read the command line args
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    filter_states_by_userInput(username, password, database, state_name)
+    filter_states_by_userInput()
