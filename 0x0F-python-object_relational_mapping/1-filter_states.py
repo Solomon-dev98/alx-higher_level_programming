@@ -20,7 +20,8 @@ def filter_states():
     cursor = db.cursor()
 
     # execute the query to retrieve states starting with N
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    cursor.execute("""SELECT * FROM states
+                   WHERE name LIKE BINARY 'N%' ORDER BY id ASC""")
 
     # fetch all the staes starting with N
     states = cursor.fetchall()
