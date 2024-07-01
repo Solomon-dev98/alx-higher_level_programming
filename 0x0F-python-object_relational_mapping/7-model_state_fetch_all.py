@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     # Create a session
     session = SessionLocal()
-    
+
     # query all states objects and order by id
     states = session.query(State).order_by(State.id).all()
 
